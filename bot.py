@@ -37,15 +37,6 @@ def update_gacha(id):
     }
     
     r = requests.get(gacha_url, headers=headers)
-    cookie = r.headers['Set-Cookie']
-    midship_start = cookie.find("midship=") + 8
-    midship_end = cookie.find("; ")
-    midship_cookie = cookie[midship_start:midship_end]
-    print(gacha_cookie)
-    gacha_cookie = gacha_cookie[:gacha_cookie.find("midship=")]
-    print(gacha_cookie)
-    gacha_cookie += "midship=" + midship_cookie
-    print(gacha_cookie)
     data = r.json()
     print("Done updating gacha info")
 
