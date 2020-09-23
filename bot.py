@@ -86,16 +86,21 @@ def get_raid_id(msg):
         'X-VERSION': '1600846035'
     }
     r = requests.post(raid_url, headers=headers, json=payload)
-    cookie = r.headers['Set-Cookie']
-    midship_start = cookie.find("midship=") + 8
-    midship_end = cookie.find("; ")
-    midship_cookie = cookie[midship_start:midship_end]
-    print(raid_cookie)
-    raid_cookie = raid_cookie[:raid_cookie.find("midship=")]
-    print(raid_cookie)
-    raid_cookie += "midship=" + midship_cookie
-    print(raid_cookie)
-    return r.json()['twitter']['battle_id']
+    
+    try:
+        id = r.json()['twitter']['battle_id']
+        cookie = r.headers['Set-Cookie']
+        midship_start = cookie.find("midship=") + 8
+        midship_end = cookie.find("; ")
+        midship_cookie = cookie[midship_start:midship_end]
+        print(raid_cookie)
+        raid_cookie = raid_cookie[:raid_cookie.find("midship=")]
+        print(raid_cookie)
+        raid_cookie += "midship=" + midship_cookie
+        print(raid_cookie)
+        return id
+    except:
+        return "Invalid cookie"
 
 def roll():
     rarities = ["SSR", "SSR", "SR", "SR", "SR", "R", "R", "R"]
