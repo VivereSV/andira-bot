@@ -24,6 +24,8 @@ def get_raid_id(msg):
     header_cookie = os.environ['RAID_COOKIE']
     if raid_cookie != "69":
         header_cookie = raid_cookie
+    else:
+        raid_cookie = header_cookie
   
   
     headers = {
