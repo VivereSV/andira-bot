@@ -62,7 +62,7 @@ async def on_message(message):
         return
         
     elif message.content.find("http://game.granbluefantasy.jp/#raid_multi/") != -1:
-        await message.channel.send(get_raid_id(message))
+        await message.channel.send(get_raid_id(message.content))
         
     
     
