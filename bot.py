@@ -49,8 +49,9 @@ def get_raid_id(msg):
     midship_end = cookie.find("; ")
     midship_cookie = cookie[midship_start:midship_end]
     print(raid_cookie)
-    raid_cookie = raid_cookie[raid_cookie.find("midship="):] + "midship=" + midship_cookie
-    print(cookie)
+    raid_cookie = raid_cookie[:raid_cookie.find("midship=")]
+    print(raid_cookie)
+    raid_cookie += "midship=" + midship_cookie
     print(raid_cookie)
     return r.json()['twitter']['battle_id']
 
