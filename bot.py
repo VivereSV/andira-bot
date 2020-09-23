@@ -47,6 +47,7 @@ def update_gacha(id):
     gacha_cookie += "midship=" + midship_cookie
     print(gacha_cookie)
     data = r.json()
+    print(data)
 
 def get_raid_id(msg):
     global raid_cookie
