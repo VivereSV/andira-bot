@@ -5,9 +5,10 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
-raid_cookie = None
+raid_cookie = "69"
 
 def get_raid_id(msg):
+    global raid_cookie
     ms = round(time.time() * 1000)
     raid_url = 'http://game.granbluefantasy.jp/rest/multiraid/start.json?_=' + str(ms) + '&t=' + str(ms + 1) + 'uid=69'
     pound_index = msg.find("#")
@@ -21,7 +22,7 @@ def get_raid_id(msg):
     }
   
     header_cookie = os.environ['RAID_COOKIE']
-    if raid_cookie is not None:
+    if raid_cookie != "69":
         header_cookie = raid_cookie
   
   
