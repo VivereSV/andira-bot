@@ -47,7 +47,7 @@ def update_gacha(id):
     gacha_cookie += "midship=" + midship_cookie
     print(gacha_cookie)
     data = r.json()
-    print(data)
+    print("Done updating gacha info")
 
 def get_raid_id(msg):
     global raid_cookie
@@ -111,7 +111,7 @@ def roll():
         rng -= float(item['drop_rate'])/100.0
         item_index += 1
     print(item)
-    end = "!'"
+    end = "!"
     if item['character_name'] is not None:
         end = "! It even came with a free " + item['character_name'] + "!"
     return "So lucky! You got a " + rarities[appear_index] + " " + item['name'] + end
