@@ -136,7 +136,7 @@ async def on_message(message):
         await message.channel.send(roll())
         
     
-    
+update_gacha(202550)    
 # Stuff for hosting it
 client.run(os.environ['TOKEN'])
-update_gacha(202550)
+
